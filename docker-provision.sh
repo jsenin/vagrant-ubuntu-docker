@@ -15,13 +15,14 @@ sudo apt-key adv \
 
 sudo bash -c 'cat > /etc/apt/sources.list.d/docker.list <<EOF
 # Oficial docker repository
-deb https://apt.dockerproject.org/repo debian-jessie main
+deb https://apt.dockerproject.org/repo ubuntu-trusty main
 EOF
 '
 
 # install 
 sudo apt-get update
 sudo apt-get -y install docker-engine
+sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
 
 #echo "Remember to add your user to docker group"
 sudo gpasswd -a "vagrant" docker
